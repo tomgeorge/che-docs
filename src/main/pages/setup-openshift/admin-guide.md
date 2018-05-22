@@ -196,14 +196,15 @@ Also, it may be visually controlled by line "System is ready to shutdown" in the
 
 
 ##  Rolling Update
-To perform Rolling type update without stopping active workspaces, the following preconditions required:
 
-- Make sure deployment update strategy set to Rolling;
-- Make sure there is full API compatibility between new master and old ws agent versions, as well as database compatibility
-  (since it is impossible to use DB migrations on this update mode);
+To perform Rolling type update without stopping active workspaces, the following preconditions are to be met:
+
+- Make sure deployment update strategy set to Rolling (`oc edit dc/che`);
+- Make sure there is full API compatibility between new master and old ws agent versions, as well as database compatibility (read [Che Release] Notes(https://github.com/eclipse/che/blob/master/CHANGELOG.md))
+  (since it is impossible to use DB migrations with this update mode);
 - Make sure `terminationGracePeriodSeconds` deployment parameter has enough value (see details below).
 
-After that preconditions is done, press Deploy button or execute `oc rollout latest che` from cli client will start the process.
+After the above preconditions are met, press Deploy button in OpenShift web console or execute `oc rollout latest che` to start the process.
 
 Unlike the Recreate update, the Rolling update type does not imply any Che server downtime,
 since new deployment is starting in parallel and traffic is hot-switched.
@@ -214,7 +215,7 @@ since new deployment is starting in parallel and traffic is hot-switched.
 - Workspaces that are started shortly (5-30sec) before the network traffic is switched to the new pod, may fallback to the stopped state.
 That happens because bootstrappers uses Che server route URL for notifying Che Server when bootstrapping is done. Since traffic is already switched
 to the new Che server, old one cannot get bootstrapper-s report, and fails the start after waiting timeout reached.
-If old Che server will be killed before this timeout, workspaces can stuck in the `STARTING` state.
+If old Che server is killed before this timeout, workspaces can stuck in the `STARTING` state.
 So the `terminationGracePeriodSeconds` parameter must define time enough to cover workspace start timeout timeout (which is 8 min by def.) plus some additional timings.
 Typically, setting  `terminationGracePeriodSeconds` to 540 sec is enough to cover all timeouts.
 
@@ -222,6 +223,7 @@ Typically, setting  `terminationGracePeriodSeconds` to 540 sec is enough to cove
 
 
 ## Update with DB migrations or API incompatibility
+
 If new version of Che server contains some DB migrations, but there is still API compatibility between old and new version,
 recreate update type may be used, without stopping running workspaces.
 
