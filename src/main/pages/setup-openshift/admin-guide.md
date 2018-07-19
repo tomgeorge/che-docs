@@ -213,6 +213,20 @@ Unlike the Recreate update, the Rolling update type does not imply any Che serve
 since new deployment is starting in parallel and traffic is hot-switched.
 (Typically there is 5-6 sec period of Che server API unavailability due to routes switching).
 
+## HTTP/HTTPS proxy
+
+Alongside with Docker and Kubernetes/Openshift Container platform proxy settings, there are also Che specific settings that have to be defined for workspace server and agents:
+
+JAVA_OPTS of the Tomcat master must be appended with proxy settings properties ( like `-DhttpProxyHost`, `-DhttpProxyPort` ) in correct format
+
+The following environment variables are used by Che to supply proxy settings to workspace container:
+
+`CHE_WORKSPACE_HTTP__PROXY` - environment  variable `http_proxy` for workspace container
+`CHE_WORKSPACE_HTTPS__PROXY` - environment variable `https_proxy` for workspace container
+`CHE_WORKSPACE_NO__PROXY` - environment variable `no_proxy` for workspace container
+
+`CHE_WORKSPACE_HTTP__PROXY__JAVA__OPTIONS` - used to append proxy settings to Java applications inside workspace containers like WS Agent Tomcat, Maven server etc.
+
 ####  Known issues
 
 - Workspaces that are started shortly (5-30sec) before the network traffic is switched to the new pod, may fallback to the stopped state.
