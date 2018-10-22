@@ -1,0 +1,45 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: chsidebar
+  product:
+  version:
+  folders:
+
+# Overview section
+  - title: Overview
+    output: web
+    folderitems:
+    - title: Introduction
+      url: che-7/index.html
+      output: web
+
+# Getting Started Section
+   - title: Getting Started
+    output: web
+    folderitems:
+    - title: Introduction Video
+      url: che-7/index.html
+      output: web
+    - title: Hosting Eclipse Che
+      url: che-7/hosting.html
+      output: web
+    - title: Discover Eclipse Che
+      url: che-7/discover.html
+      output: web
+
+# Installation Guidelines
+  - title: Installation Guidelines
+      output: web
+      folderitems:
+      - title: Overview
+        url: che-7/installation-overview.html
+        output: web
+
+# Extending Guidelines
+  - title: Extending Eclipse Che
+      output: web
+      folderitems:
+      - title: Overview
+        url: che-7/extending-overview.html
+        output: web

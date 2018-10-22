@@ -9,8 +9,8 @@ topnav:
 #      url: /release-6.0.0.html
     - title: Source Code
       external_url: https://github.com/eclipse/che
-#    - title: Docs 5.x
-#      external_url: https://www.eclipse.org/che/docs/5/che/docs
+    - title: Che-7-Beta
+      url: /che-7/index.html
 
 #Topnav dropdowns
 topnav_dropdowns:

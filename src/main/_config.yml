@@ -91,6 +91,7 @@ defaults:
 
 sidebars:
 - user_sidebar
+- che-7-sidebar
 - product1_sidebar
 - dev_sidebar
 - other

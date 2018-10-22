@@ -1,0 +1,16 @@
+---
+title: Hosting Eclipse Che
+keywords: overview
+tags: [overview, getting-started]
+sidebar: che-7-sidebar
+permalink: che-7/hosting.html
+folder: overview
+summary: Eclipse Che is a developer workspace server and cloud IDE
+
+---
+
+[id="online-version"]
+
+*Note:* Under construction
+
+
