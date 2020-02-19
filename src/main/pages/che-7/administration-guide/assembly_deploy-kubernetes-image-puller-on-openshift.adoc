@@ -102,7 +102,3 @@ eia=eclipse/che-theia:next; java-plugin-runner=eclipse/che-remote-plugin-runner-
   selfLink: /api/v1/namespaces/k8s-image-puller/configmaps/k8s-image-puller
   uid: 76430ed6-51d6-11ea-9c19-52fdfc072182
 ```
-
-When creating a workspace that relies on cached images specified in `IMAGES`, you should see Eclipse Che confirm that the images are already present when the workspace is starting:
-
-image::installation/image-already-present-on-machine.png[]

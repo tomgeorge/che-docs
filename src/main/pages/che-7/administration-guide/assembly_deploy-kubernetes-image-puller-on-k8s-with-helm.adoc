@@ -81,9 +81,3 @@ metadata:
   selfLink: /api/v1/namespaces/k8s-image-puller/configmaps/k8s-image-puller
   uid: 71bc5ce4-d095-468e-ab7b-23c1e0a36638
 ```
-
-When creating a workspace that relies on cached images specified in `IMAGES`, you should see Eclipse Che confirm that the images are already present when the workspace is starting:
-
-image::installation/image-already-present-on-machine.png[]
-
-"Image already present" image goes here.
